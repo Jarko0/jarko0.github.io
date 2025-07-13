@@ -25,9 +25,6 @@
   <script>
     function copyLink() {
       const url = window.location.href.replace(/index\.html$/, '') + 'ronaldo.mp3';
-      navigator.clipboard.writeText(url).then(() => {
-        alert("Link skopiowany:\n" + url);
-      });
     }
   </script>
 </body>
