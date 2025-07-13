@@ -9,8 +9,7 @@
 <body>
   <h1>Notyfikatory</h1>
 
-  <div id="playlist">
-  </div>
+  <div id="playlist"></div>
 
   <footer>
     Hostowane na GitHub Pages
@@ -38,13 +37,20 @@
       const trackDiv = document.createElement('div');
       trackDiv.classList.add('track');
 
-      const title = document.createElement('div');
+      // Przycisk Play/Pause
+      const playPauseBtn = document.createElement('button');
+      playPauseBtn.classList.add('play-pause-btn');
+      playPauseBtn.textContent = "▶️"; // Startowy symbol play
+      trackDiv.appendChild(playPauseBtn);
+
+      // Tytuł utworu
+      const title = document.createElement('span');
       title.classList.add('track-title');
       title.textContent = track.title;
       trackDiv.appendChild(title);
 
+      // Element audio (ukryty)
       const audio = document.createElement('audio');
-      audio.controls = true;
       audio.id = `player-${index}`;
       const source = document.createElement('source');
       source.src = track.url;
@@ -52,14 +58,44 @@
       audio.appendChild(source);
       trackDiv.appendChild(audio);
 
+      // Kopiuj link button
       const copyButton = document.createElement('button');
       copyButton.textContent = "Kopiuj";
+      copyButton.style.marginLeft = "10px";
       copyButton.addEventListener('click', () => {
         navigator.clipboard.writeText(track.url).then(() => {
           alert(`Skopiowano link: ${track.url}`);
         });
       });
       trackDiv.appendChild(copyButton);
+
+      // Obsługa przycisku play/pause
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          // Zatrzymaj inne audio w playlistcie
+          document.querySelectorAll('audio').forEach(a => {
+            if (a !== audio) {
+              a.pause();
+              // Zmień ikonę innych przycisków na play
+              const btn = a.previousSibling; // poprzedni element - button play/pause
+              if (btn && btn.classList.contains('play-pause-btn')) {
+                btn.textContent = "▶️";
+              }
+            }
+          });
+
+          audio.play();
+          playPauseBtn.textContent = "⏸️";
+        } else {
+          audio.pause();
+          playPauseBtn.textContent = "▶️";
+        }
+      });
+
+      // Po zakończeniu utworu zmień ikonę na play
+      audio.addEventListener('ended', () => {
+        playPauseBtn.textContent = "▶️";
+      });
 
       playlistDiv.appendChild(trackDiv);
     });

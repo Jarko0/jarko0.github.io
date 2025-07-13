@@ -47,3 +47,16 @@ footer {
   font-size: 0.8rem;
   color: #666;
 }
+
+ .track {
+      margin-bottom: 20px;
+    }
+    .track-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .play-pause-btn {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
