@@ -19,15 +19,15 @@
   <script>
     const tracks = [
       {
-        title: "Ronaldo - Utwór 1",
+        title: "Ronaldo",
         url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3"
       },
       {
-        title: "Inny Utwór",
+        title: "placeholder",
         url: "https://example.com/inny-plik.mp3"
       },
       {
-        title: "Trzeci Utwór",
+        title: "placeholder",
         url: "https://example.com/trzeci-plik.mp3"
       }
     ];
@@ -53,7 +53,7 @@
       trackDiv.appendChild(audio);
 
       const copyButton = document.createElement('button');
-      copyButton.textContent = "Kopiuj link do utworu";
+      copyButton.textContent = "Kopiuj";
       copyButton.addEventListener('click', () => {
         navigator.clipboard.writeText(track.url).then(() => {
           alert(`Skopiowano link: ${track.url}`);
