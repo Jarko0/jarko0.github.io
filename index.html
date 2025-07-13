@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Odtwarzacz MP3</title>
+</head>
+<body>
+  <h1>Utwór do odsłuchania</h1>
+  
+  <audio controls>
+    <source src="utwor.mp3" type="audio/mpeg">
+    Twoja przeglądarka nie obsługuje odtwarzacza audio.
+  </audio>
+
+  <p>
+    <button onclick="copyLink()">Kopiuj link do utworu</button>
+  </p>
+
+  <script>
+    function copyLink() {
+      const url = window.location.href.replace(/index\.html$/, '') + 'utwor.mp3';
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Link skopiowany:\n" + url);
+      });
+    }
+  </script>
+</body>
+</html>
