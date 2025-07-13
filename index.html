@@ -60,7 +60,6 @@
       copyButton.style.marginLeft = "10px";
       copyButton.addEventListener('click', () => {
         navigator.clipboard.writeText(track.url).then(() => {
-          alert(`Skopiowano link: ${track.url}`);
         });
       });
       trackDiv.appendChild(copyButton);
