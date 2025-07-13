@@ -10,7 +10,7 @@
   <h1>Odtwarzacz MP3</h1>
 
   <audio controls id="player">
-    <source src="https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://twoja-nazwa.github.io/audio/moj.mp3" type="audio/mpeg">
+    <source src="https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3" type="audio/mpeg">
     Twoja przeglądarka nie obsługuje elementu audio.
   </audio>
 
@@ -24,7 +24,11 @@
 
   <script>
     function copyLink() {
-      const url = window.location.href.replace(/index\.html$/, '') + 'ronaldo.mp3';
+      const audio = document.getElementById('player');
+      const src = audio.querySelector('source').src;
+      navigator.clipboard.writeText(src).then(() => {
+        alert('Skopiowano link: ' + src);
+      });
     }
   </script>
 </body>
