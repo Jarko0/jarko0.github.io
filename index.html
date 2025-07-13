@@ -18,15 +18,15 @@
   <script>
     const tracks = [
       {
-        title: "Ronaldo",
+        title: " Ronaldo",
         url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3"
       },
       {
-        title: "Magenta",
+        title: " Magenta",
         url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/pezet.mp3"
       },
       {
-        title: "placeholder",
+        title: " placeholder",
         url: "https://example.com/trzeci-plik.mp3"
       }
     ];
@@ -37,19 +37,16 @@
       const trackDiv = document.createElement('div');
       trackDiv.classList.add('track');
 
-      // Przycisk Play/Pause
       const playPauseBtn = document.createElement('button');
       playPauseBtn.classList.add('play-pause-btn');
-      playPauseBtn.textContent = "▶️"; // Startowy symbol play
+      playPauseBtn.textContent = "▶️"; 
       trackDiv.appendChild(playPauseBtn);
 
-      // Tytuł utworu
       const title = document.createElement('span');
       title.classList.add('track-title');
       title.textContent = track.title;
       trackDiv.appendChild(title);
 
-      // Element audio (ukryty)
       const audio = document.createElement('audio');
       audio.id = `player-${index}`;
       const source = document.createElement('source');
@@ -58,7 +55,6 @@
       audio.appendChild(source);
       trackDiv.appendChild(audio);
 
-      // Kopiuj link button
       const copyButton = document.createElement('button');
       copyButton.textContent = "Kopiuj";
       copyButton.style.marginLeft = "10px";
@@ -69,15 +65,12 @@
       });
       trackDiv.appendChild(copyButton);
 
-      // Obsługa przycisku play/pause
       playPauseBtn.addEventListener('click', () => {
         if (audio.paused) {
-          // Zatrzymaj inne audio w playlistcie
           document.querySelectorAll('audio').forEach(a => {
             if (a !== audio) {
               a.pause();
-              // Zmień ikonę innych przycisków na play
-              const btn = a.previousSibling; // poprzedni element - button play/pause
+              const btn = a.previousSibling; 
               if (btn && btn.classList.contains('play-pause-btn')) {
                 btn.textContent = "▶️";
               }
@@ -92,7 +85,6 @@
         }
       });
 
-      // Po zakończeniu utworu zmień ikonę na play
       audio.addEventListener('ended', () => {
         playPauseBtn.textContent = "▶️";
       });
