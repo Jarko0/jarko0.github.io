@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odtwarzacz MP3</title>
   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Odtwarzacz MP3 - Lista utworów</title>
 </head>
 <body>
-  <h1>Odtwarzacz MP3</h1>
+  <h1>Odtwarzacz MP3 - Lista utworów</h1>
 
-  <audio controls id="player">
-    <source src="https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3" type="audio/mpeg">
-    Twoja przeglądarka nie obsługuje elementu audio.
-  </audio>
-
-  <p>
-    <button onclick="copyLink()">Kopiuj link do utworu</button>
-  </p>
+  <div id="playlist">
+  </div>
 
   <footer>
     Hostowane na GitHub Pages
   </footer>
 
   <script>
-    function copyLink() {
-      const audio = document.getElementById('player');
-      const src = audio.querySelector('source').src;
-      navigator.clipboard.writeText(src).then(() => {
-        alert('Skopiowano link: ' + src);
+    const tracks = [
+      {
+        title: "Ronaldo - Utwór 1",
+        url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3"
+      },
+      {
+        title: "Inny Utwór",
+        url: "https://example.com/inny-plik.mp3"
+      },
+      {
+        title: "Trzeci Utwór",
+        url: "https://example.com/trzeci-plik.mp3"
+      }
+    ];
+
+    const playlistDiv = document.getElementById('playlist');
+
+    tracks.forEach((track, index) => {
+      const trackDiv = document.createElement('div');
+      trackDiv.classList.add('track');
+
+      const title = document.createElement('div');
+      title.classList.add('track-title');
+      title.textContent = track.title;
+      trackDiv.appendChild(title);
+
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.id = `player-${index}`;
+      const source = document.createElement('source');
+      source.src = track.url;
+      source.type = 'audio/mpeg';
+      audio.appendChild(source);
+      trackDiv.appendChild(audio);
+
+      const copyButton = document.createElement('button');
+      copyButton.textContent = "Kopiuj link do utworu";
+      copyButton.addEventListener('click', () => {
+        navigator.clipboard.writeText(track.url).then(() => {
+          alert(`Skopiowano link: ${track.url}`);
+        });
       });
-    }
+      trackDiv.appendChild(copyButton);
+
+      playlistDiv.appendChild(trackDiv);
+    });
   </script>
 </body>
 </html>
