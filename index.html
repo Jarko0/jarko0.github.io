@@ -1,95 +1,136 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Notyfikatory</title>
+  <title>Strona główna</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Notyfikatory</h1>
 
-  <div id="playlist"></div>
+  <h1>Strona Główna</h1>
+  <div id="content">
+    <button onclick="loadNotyfikatory()">Notyfikatory</button>
+    <button onclick="loadKalkulatory()">Kalkulatory</button>
+  </div>
 
-  <footer>
+  <footer style="margin-top: 50px;">
     Hostowane na GitHub Pages
   </footer>
 
   <script>
-    const tracks = [
-      {
-        title: " Ronaldo",
-        url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3"
-      },
-      {
-        title: " Magenta",
-        url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/pezet.mp3"
-      },
-      {
-        title: " Wybacz",
-        url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wybacz.mp3"
-      }
-    ];
+    function loadMainPage() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <button onclick="loadNotyfikatory()">Notyfikatory</button>
+        <button onclick="loadKalkulatory()">Kalkulatory</button>
+      `;
+    }
 
-    const playlistDiv = document.getElementById('playlist');
+    function loadNotyfikatory() {
+      const content = document.getElementById('content');
+      content.innerHTML = '<h2>Notyfikatory</h2><div id="playlist"></div><button onclick="loadMainPage()">⬅ Powrót</button>';
 
-    tracks.forEach((track, index) => {
-      const trackDiv = document.createElement('div');
-      trackDiv.classList.add('track');
-
-      const playPauseBtn = document.createElement('button');
-      playPauseBtn.classList.add('play-pause-btn');
-      playPauseBtn.textContent = "▶️"; 
-      trackDiv.appendChild(playPauseBtn);
-
-      const title = document.createElement('span');
-      title.classList.add('track-title');
-      title.textContent = track.title;
-      trackDiv.appendChild(title);
-
-      const audio = document.createElement('audio');
-      audio.id = `player-${index}`;
-      const source = document.createElement('source');
-      source.src = track.url;
-      source.type = 'audio/mpeg';
-      audio.appendChild(source);
-      trackDiv.appendChild(audio);
-
-      const copyButton = document.createElement('button');
-      copyButton.textContent = "Kopiuj";
-      copyButton.style.marginLeft = "10px";
-      copyButton.addEventListener('click', () => {
-        navigator.clipboard.writeText(track.url).then(() => {
-        });
-      });
-      trackDiv.appendChild(copyButton);
-
-      playPauseBtn.addEventListener('click', () => {
-        if (audio.paused) {
-          document.querySelectorAll('audio').forEach(a => {
-            if (a !== audio) {
-              a.pause();
-              const btn = a.previousSibling; 
-              if (btn && btn.classList.contains('play-pause-btn')) {
-                btn.textContent = "▶️";
-              }
-            }
-          });
-
-          audio.play();
-          playPauseBtn.textContent = "⏸️";
-        } else {
-          audio.pause();
-          playPauseBtn.textContent = "▶️";
+      const tracks = [
+        {
+          title: " Ronaldo",
+          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3"
+        },
+        {
+          title: " Magenta",
+          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/pezet.mp3"
+        },
+        {
+          title: " Wybacz",
+          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wybacz.mp3"
         }
-      });
+      ];
 
-      audio.addEventListener('ended', () => {
-        playPauseBtn.textContent = "▶️";
-      });
+      const playlistDiv = document.getElementById('playlist');
 
-      playlistDiv.appendChild(trackDiv);
-    });
+      tracks.forEach((track, index) => {
+        const trackDiv = document.createElement('div');
+        trackDiv.classList.add('track');
+
+        const playPauseBtn = document.createElement('button');
+        playPauseBtn.classList.add('play-pause-btn');
+        playPauseBtn.textContent = "▶️"; 
+        trackDiv.appendChild(playPauseBtn);
+
+        const title = document.createElement('span');
+        title.classList.add('track-title');
+        title.textContent = track.title;
+        trackDiv.appendChild(title);
+
+        const audio = document.createElement('audio');
+        audio.id = `player-${index}`;
+        const source = document.createElement('source');
+        source.src = track.url;
+        source.type = 'audio/mpeg';
+        audio.appendChild(source);
+        trackDiv.appendChild(audio);
+
+        const copyButton = document.createElement('button');
+        copyButton.textContent = "Kopiuj";
+        copyButton.style.marginLeft = "10px";
+        copyButton.addEventListener('click', () => {
+          navigator.clipboard.writeText(track.url);
+        });
+        trackDiv.appendChild(copyButton);
+
+        playPauseBtn.addEventListener('click', () => {
+          if (audio.paused) {
+            document.querySelectorAll('audio').forEach(a => {
+              if (a !== audio) {
+                a.pause();
+                const btn = a.previousSibling; 
+                if (btn && btn.classList.contains('play-pause-btn')) {
+                  btn.textContent = "▶️";
+                }
+              }
+            });
+            audio.play();
+            playPauseBtn.textContent = "⏸️";
+          } else {
+            audio.pause();
+            playPauseBtn.textContent = "▶️";
+          }
+        });
+
+        audio.addEventListener('ended', () => {
+          playPauseBtn.textContent = "▶️";
+        });
+
+        playlistDiv.appendChild(trackDiv);
+      });
+    }
+
+    function loadKalkulatory() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h2>Kalkulatory</h2>
+        <label>Legenda:<br><input type="text" id="legend"></label><br>
+        <label>Ilość punktów do wbicia na +1:<br><input type="number" id="points"></label><br>
+        <button onclick="oblicz()">Oblicz</button>
+        <div id="result" style="margin-top:10px;"></div>
+        <button onclick="loadMainPage()">⬅ Powrót</button>
+      `;
+    }
+
+    function oblicz() {
+      const legenda = document.getElementById('legend').value.trim();
+      const punkty = parseFloat(document.getElementById('points').value);
+      const wynikDiv = document.getElementById('result');
+
+      if (legenda === "" || isNaN(punkty)) {
+        wynikDiv.innerHTML = "<strong>Wprowadź poprawne dane.</strong>";
+        return;
+      }
+
+      const wynik = punkty * 1.15; 
+      wynikDiv.innerHTML = `<strong>${legenda}:</strong> Potrzebujesz ${wynik.toFixed(2)} punktów`;
+    }
   </script>
+
 </body>
 </html>
