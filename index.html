@@ -109,7 +109,6 @@
       const content = document.getElementById('content');
       content.innerHTML = `
         <h2>Kalkulatory</h2>
-        <label>Legenda:<br><input type="text" id="legend"></label><br>
         <label>Ilość punktów do wbicia na +1:<br><input type="number" id="points"></label><br>
         <button onclick="oblicz()">Oblicz</button>
         <div id="result" style="margin-top:10px;"></div>
@@ -118,17 +117,16 @@
     }
 
     function oblicz() {
-      const legenda = document.getElementById('legend').value.trim();
       const punkty = parseFloat(document.getElementById('points').value);
       const wynikDiv = document.getElementById('result');
 
-      if (legenda === "" || isNaN(punkty)) {
+      if (isNaN(punkty)) {
         wynikDiv.innerHTML = "<strong>Wprowadź poprawne dane.</strong>";
         return;
       }
-
-      const wynik = punkty * 7.4416; 
-      wynikDiv.innerHTML = `<strong>${legenda}:</strong> Potrzebujesz ${wynik.toFixed(2)} punktów`;
+      const wynik = punkty * 7.4416;
+      const wynikMiliony = (wynik / 1_000_000).toFixed(2);
+      wynikDiv.innerHTML = `Potrzebujesz ${wynikMiliony}m punktów ulepy do wbicia legendy na +5`;
     }
   </script>
 
