@@ -109,6 +109,7 @@
       const content = document.getElementById('content');
       content.innerHTML = `
         <h2>Kalkulatory</h2>
+        <label>Wartość legendy na +0 w esencji: <br><input type="number" id="esencja"</label><br>
         <label>Ilość punktów do wbicia na +1:<br><input type="number" id="points"></label><br>
         <button onclick="oblicz()">Oblicz</button>
         <div id="result" style="margin-top:10px;"></div>
@@ -118,15 +119,17 @@
 
     function oblicz() {
       const punkty = parseFloat(document.getElementById('points').value);
+      const esencja = parseFloat(document.getElementById('esencja').value);
       const wynikDiv = document.getElementById('result');
 
-      if (isNaN(punkty)) {
+      if (isNaN(punkty)){
         wynikDiv.innerHTML = "<strong>Wprowadź poprawne dane.</strong>";
         return;
       }
+      const wynikEse = esencja * 3;
       const wynik = punkty * 7.4416;
       const wynikMiliony = (wynik / 1_000_000).toFixed(2);
-      wynikDiv.innerHTML = `Potrzebujesz ${wynikMiliony}m punktów ulepy do wbicia legendy na +5`;
+      wynikDiv.innerHTML = `Potrzebujesz ${wynikMiliony}m punktów ulepy oraz ${wynikEse} esencji do wbicia legendy na +5 <br> Co stanowi ${(wynik/100000).toFixed(2)} dni biegania limitu, zakładając 100k ulepy dziennie`;
     }
   </script>
 
