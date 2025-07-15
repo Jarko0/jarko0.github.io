@@ -48,15 +48,43 @@ footer {
   color: #666;
 }
 
- .track {
-      margin-bottom: 20px;
-    }
-    .track-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .play-pause-btn {
-      font-size: 24px;
-      cursor: pointer;
-      margin-right: 10px;
-    }
+.track {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.track-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.track-title {
+  flex: 1;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.track-title:hover {
+  color: #007bff;
+  cursor: default;
+  overflow: visible;
+  white-space: normal;
+}
+
+
+.play-pause-btn, .track-inner button {
+  flex-shrink: 0;
+}

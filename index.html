@@ -31,34 +31,13 @@
       content.innerHTML = '<h2>Notyfikatory</h2><div id="playlist"></div><button onclick="loadMainPage()">⬅ Powrót</button>';
 
       const tracks = [
-        {
-          title: " Ronaldo",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3"
-        },
-        {
-          title: " Magenta",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/pezet.mp3"
-        },
-        {
-          title: " Wybacz",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wybacz.mp3"
-        },
-        {
-          title: " Erika",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/erika.mp3"
-        },
-        {
-          title: " Wiesia oł oł",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wiesia.mp3"
-        },
-        {
-          title: " KURRRRWAAA",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/kurwa.mp3"
-        },
-        {
-          title: " Zamknij pysk",
-          url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/zamknij.mp3"
-        }
+        { title: " Ronaldo", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3" },
+        { title: " Magenta", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/pezet.mp3" },
+        { title: " Wybacz", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wybacz.mp3" },
+        { title: " Erika", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/erika.mp3" },
+        { title: " Wiesia oł oł", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wiesia.mp3" },
+        { title: " KURRRRWAAA", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/kurwa.mp3" },
+        { title: " Zamknij pysk", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/zamknij.mp3" }
       ];
 
       const playlistDiv = document.getElementById('playlist');
@@ -67,15 +46,19 @@
         const trackDiv = document.createElement('div');
         trackDiv.classList.add('track');
 
+        const innerDiv = document.createElement('div');
+        innerDiv.classList.add('track-inner');
+        trackDiv.appendChild(innerDiv);
+
         const playPauseBtn = document.createElement('button');
         playPauseBtn.classList.add('play-pause-btn');
         playPauseBtn.textContent = "▶️"; 
-        trackDiv.appendChild(playPauseBtn);
+        innerDiv.appendChild(playPauseBtn);
 
         const title = document.createElement('span');
         title.classList.add('track-title');
         title.textContent = track.title;
-        trackDiv.appendChild(title);
+        innerDiv.appendChild(title);
 
         const audio = document.createElement('audio');
         audio.id = `player-${index}`;
@@ -83,22 +66,21 @@
         source.src = track.url;
         source.type = 'audio/mpeg';
         audio.appendChild(source);
-        trackDiv.appendChild(audio);
+        innerDiv.appendChild(audio);
 
         const copyButton = document.createElement('button');
         copyButton.textContent = "Kopiuj";
-        copyButton.style.marginLeft = "10px";
         copyButton.addEventListener('click', () => {
           navigator.clipboard.writeText(track.url);
         });
-        trackDiv.appendChild(copyButton);
+        innerDiv.appendChild(copyButton);
 
         playPauseBtn.addEventListener('click', () => {
           if (audio.paused) {
             document.querySelectorAll('audio').forEach(a => {
               if (a !== audio) {
                 a.pause();
-                const btn = a.previousSibling; 
+                const btn = a.previousSibling;
                 if (btn && btn.classList.contains('play-pause-btn')) {
                   btn.textContent = "▶️";
                 }
@@ -124,7 +106,7 @@
       const content = document.getElementById('content');
       content.innerHTML = `
         <h2>Kalkulatory</h2>
-        <label>Wartość legendy na +0 w esencji: <br><input type="number" id="esencja"</label><br>
+        <label>Wartość legendy na +0 w esencji: <br><input type="number" id="esencja"></label><br>
         <label>Ilość punktów do wbicia na +1:<br><input type="number" id="points"></label><br>
         <button onclick="oblicz()">Oblicz</button>
         <div id="result" style="margin-top:10px;"></div>
