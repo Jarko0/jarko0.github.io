@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Jarko0/jarko0.github.io/static/css/main.a996479c.css",
+    "main.js": "/Jarko0/jarko0.github.io/static/js/main.3071fa24.js",
+    "static/js/453.51f06da2.chunk.js": "/Jarko0/jarko0.github.io/static/js/453.51f06da2.chunk.js",
+    "index.html": "/Jarko0/jarko0.github.io/index.html",
+    "main.a996479c.css.map": "/Jarko0/jarko0.github.io/static/css/main.a996479c.css.map",
+    "main.3071fa24.js.map": "/Jarko0/jarko0.github.io/static/js/main.3071fa24.js.map",
+    "453.51f06da2.chunk.js.map": "/Jarko0/jarko0.github.io/static/js/453.51f06da2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a996479c.css",
+    "static/js/main.3071fa24.js"
+  ]
+}
