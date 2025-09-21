@@ -1,134 +1,104 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strona główna</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mycie dachów i prace wysokościowe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7fafc;
+            color: #263238;
+        }
+        header {
+            background: linear-gradient(90deg, #0288d1 60%, #26c6da 100%);
+            color: #fff;
+            padding: 40px 10px 30px 10px;
+            text-align: center;
+        }
+        section {
+            margin: 0 auto;
+            max-width: 720px;
+            padding: 30px 20px;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        .services {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #0288d11a;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .services ul {
+            padding-left: 22px;
+        }
+        .contact {
+            background: #0288d1;
+            color: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 3px 10px #0288d122;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+        .contact a {
+            background: #fff;
+            color: #0288d1;
+            text-decoration: none;
+            padding: 10px 28px;
+            font-weight: bold;
+            font-size: 1.14em;
+            border-radius: 22px;
+            margin: 0 8px;
+            display: inline-block;
+            transition: background 0.2s, color 0.2s;
+        }
+        .contact a:hover {
+            background: #26c6da;
+            color: #fff;
+        }
+        footer {
+            text-align: center;
+            color: #8ca1af;
+            font-size: 0.98em;
+            padding-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
-
-  <div id="content">
-    <button onclick="loadNotyfikatory()">Notyfikatory</button>
-    <button onclick="loadKalkulatory()">Kalkulatory</button>
-  </div>
-
-  <footer style="margin-top: 50px;">
-    Hostowane na GitHub Pages
-  </footer>
-
-  <script>
-    function loadMainPage() {
-      const content = document.getElementById('content');
-      content.innerHTML = `
-        <button onclick="loadNotyfikatory()">Notyfikatory</button>
-        <button onclick="loadKalkulatory()">Kalkulatory</button>
-      `;
-    }
-
-    function loadNotyfikatory() {
-      const content = document.getElementById('content');
-      content.innerHTML = '<h2>Notyfikatory</h2><div id="playlist"></div><button onclick="loadMainPage()">⬅ Powrót</button>';
-
-      const tracks = [
-        { title: " Ronaldo", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/ronaldo.mp3" },
-        { title: " Magenta", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/pezet.mp3" },
-        { title: " Wybacz", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wybacz.mp3" },
-        { title: " Erika", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/erika.mp3" },
-        { title: " Wiesia oł oł", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/wiesia.mp3" },
-        { title: " KURRRRWAAA", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/kurwa.mp3" },
-        { title: " Zamknij pysk", url: "https://soft-math-0697.kuba-jarosz123987.workers.dev/?url=https://jarko0.github.io/zamknij.mp3" }
-      ];
-
-      const playlistDiv = document.getElementById('playlist');
-
-      tracks.forEach((track, index) => {
-        const trackDiv = document.createElement('div');
-        trackDiv.classList.add('track');
-
-        const innerDiv = document.createElement('div');
-        innerDiv.classList.add('track-inner');
-        trackDiv.appendChild(innerDiv);
-
-        const playPauseBtn = document.createElement('button');
-        playPauseBtn.classList.add('play-pause-btn');
-        playPauseBtn.textContent = "▶️"; 
-        innerDiv.appendChild(playPauseBtn);
-
-        const title = document.createElement('span');
-        title.classList.add('track-title');
-        title.textContent = track.title;
-        innerDiv.appendChild(title);
-
-        const audio = document.createElement('audio');
-        audio.id = `player-${index}`;
-        const source = document.createElement('source');
-        source.src = track.url;
-        source.type = 'audio/mpeg';
-        audio.appendChild(source);
-        innerDiv.appendChild(audio);
-
-        const copyButton = document.createElement('button');
-        copyButton.textContent = "Kopiuj";
-        copyButton.addEventListener('click', () => {
-          navigator.clipboard.writeText(track.url);
-        });
-        innerDiv.appendChild(copyButton);
-
-        playPauseBtn.addEventListener('click', () => {
-          if (audio.paused) {
-            document.querySelectorAll('audio').forEach(a => {
-              if (a !== audio) {
-                a.pause();
-                const btn = a.previousSibling;
-                if (btn && btn.classList.contains('play-pause-btn')) {
-                  btn.textContent = "▶️";
-                }
-              }
-            });
-            audio.play();
-            playPauseBtn.textContent = "⏸️";
-          } else {
-            audio.pause();
-            playPauseBtn.textContent = "▶️";
-          }
-        });
-
-        audio.addEventListener('ended', () => {
-          playPauseBtn.textContent = "▶️";
-        });
-
-        playlistDiv.appendChild(trackDiv);
-      });
-    }
-
-    function loadKalkulatory() {
-      const content = document.getElementById('content');
-      content.innerHTML = `
-        <h2>Kalkulatory</h2>
-        <label>Wartość legendy na +0 w esencji: <br><input type="number" id="esencja"></label><br>
-        <label>Ilość punktów do wbicia na +1:<br><input type="number" id="points"></label><br>
-        <button onclick="oblicz()">Oblicz</button>
-        <div id="result" style="margin-top:10px;"></div>
-        <button onclick="loadMainPage()">⬅ Powrót</button>
-      `;
-    }
-
-    function oblicz() {
-      const punkty = parseFloat(document.getElementById('points').value);
-      const esencja = parseFloat(document.getElementById('esencja').value);
-      const wynikDiv = document.getElementById('result');
-
-      if (isNaN(punkty)){
-        wynikDiv.innerHTML = "<strong>Wprowadź poprawne dane.</strong>";
-        return;
-      }
-      const wynikEse = esencja * 3;
-      const wynik = punkty * 7.4416;
-      const wynikMiliony = (wynik / 1_000_000).toFixed(2);
-      wynikDiv.innerHTML = `Potrzebujesz ${wynikMiliony}m punktów ulepy oraz ${wynikEse} esencji do wbicia legendy na +5 <br> Co stanowi ${(wynik/100000).toFixed(2)} dni biegania limitu, zakładając 100k ulepy dziennie`;
-    }
-  </script>
-
+<header>
+    <h1>Profesjonalne Mycie Dachów i Prace Wysokościowe</h1>
+    <p>Zadbaj o swój dom — powierz dach i elewację specjalistom</p>
+</header>
+<section class="services">
+    <h2>Zakres usług</h2>
+    <ul>
+        <li>Mycie dachów (blachodachówka, dachówka, gont) — usuwanie mchu, brudu, osadów</li>
+        <li>Czyszczenie i impregnacja elewacji</li>
+        <li>Mycie i udrażnianie rynien</li>
+        <li>Usuwanie śniegu i sopli z dachów w sezonie zimowym</li>
+        <li>Mycie kostki brukowej i ogrodzeń</li>
+        <li>Prace alpinistyczne (prace na wysokości z użyciem lin)</li>
+        <li>Impregnacja dachów i powierzchni pionowych</li>
+        <li>Usuwanie graffiti i trudnych zabrudzeń</li>
+        <li>Naprawy drobnych usterek dekarskich (uszczelnienia, wymiana dachówek)</li>
+    </ul>
+</section>
+<section class="contact">
+    <h2>Kontakt</h2>
+    <p>Umów się na wycenę lub zapytaj o usługę:</p>
+    <a href="tel:+48123456789">Zadzwoń: 123 456 789</a>
+    <a href="mailto:kontakt@myciedachu.pl">Wyślij e-mail</a>
+    <a href="https://m.me/mysmycie" target="_blank">Napisz na Messengerze</a>
+    <p style="margin-top:16px;">Działamy w województwie Lubelskim i okolicach!</p>
+</section>
+<footer>
+    &copy; 2025 Mycie Dachów pro | Bezpłatna wycena |
+    Strona na GitHub Pages
+</footer>
 </body>
 </html>
