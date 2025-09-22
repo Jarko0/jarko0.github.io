@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mycie-dachow/static/css/main.a6b19879.css",
-    "main.js": "/mycie-dachow/static/js/main.cbaf26bc.js",
-    "static/js/453.51f06da2.chunk.js": "/mycie-dachow/static/js/453.51f06da2.chunk.js",
-    "index.html": "/mycie-dachow/index.html",
-    "main.a6b19879.css.map": "/mycie-dachow/static/css/main.a6b19879.css.map",
-    "main.cbaf26bc.js.map": "/mycie-dachow/static/js/main.cbaf26bc.js.map",
-    "453.51f06da2.chunk.js.map": "/mycie-dachow/static/js/453.51f06da2.chunk.js.map"
+    "main.css": "/static/css/main.a6b19879.css",
+    "main.js": "/static/js/main.497ca9d4.js",
+    "static/js/453.51f06da2.chunk.js": "/static/js/453.51f06da2.chunk.js",
+    "index.html": "/index.html",
+    "main.a6b19879.css.map": "/static/css/main.a6b19879.css.map",
+    "main.497ca9d4.js.map": "/static/js/main.497ca9d4.js.map",
+    "453.51f06da2.chunk.js.map": "/static/js/453.51f06da2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a6b19879.css",
-    "static/js/main.cbaf26bc.js"
+    "static/js/main.497ca9d4.js"
   ]
 }
