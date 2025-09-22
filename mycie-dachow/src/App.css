@@ -1,24 +1,10 @@
-.main-bg {
-  min-height: 100vh;
-  background: linear-gradient(145deg, #f7fafc 60%, #b3eaff 100%);
+.remix-logo {
+  max-width: 160px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 2px 12px #0288d155);
 }
-
-header {
-  background: linear-gradient(90deg, #0288d1 60%, #26c6da 100%);
-  color: #fff;
-  padding: 48px 18px 32px 18px;
-  text-align: center;
-  border-radius: 0 0 38px 38px;
-  box-shadow: 0 4px 24px #0288d11a;
-}
-
-.subtitle {
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-top: 8px;
-}
-
-.services {
+.about,
+.offer {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 12px #0288d120;
@@ -26,15 +12,9 @@ header {
   margin: 36px auto;
   max-width: 740px;
 }
-
-.services h2 {
+.about h2, .offer h2 {
   margin-top: 0;
 }
-
-.services ul {
-  padding-left: 24px;
-}
-
 .contact {
   background: #0288d1;
   color: #fff;
@@ -45,7 +25,6 @@ header {
   margin: 0 auto 30px auto;
   max-width: 740px;
 }
-
 .btn {
   background: #fff;
   color: #0288d1;
@@ -64,7 +43,6 @@ header {
   color: #fff;
   box-shadow: 0 6px 14px #0288d155;
 }
-
 footer {
   text-align: center;
   color: #8ca1af;
