@@ -37,13 +37,25 @@ function App() {
           Działamy szybko, solidnie i z gwarancją jakości. Z nami Twój dach odzyska świeżość i trwałość na lata!
         </p>
       </section>
-
+      <section className="gallery">
+        <h2>Galeria wykonanych prac</h2>
+        <div className="gallery-wrapper">
+          <div className="gallery-item">
+            <h3>Przed</h3>
+            <img src="przed.jpg" alt="Dach przed czyszczeniem" className="gallery-photo" />
+          </div>
+          <div className="gallery-item">
+            <h3>Po</h3>
+            <img src="po.jpg" alt="Dach po czyszczeniu" className="gallery-photo" />
+          </div>
+        </div>
+      </section>
       <section className="contact">
         <h2>Kontakt</h2>
         <p>Skontaktuj się z nami i umów darmową wycenę:</p>
         <a href="tel:+48123456789" className="btn">Zadzwoń: 123 456 789</a>
         <a href="mailto:kontakt@remix-dachy.pl" className="btn">Wyślij e-mail</a>
-        <a href="https://m.me/remix-dachy" target="_blank" rel="noopener noreferrer" className="btn">Napisz na Messengerze</a>
+        <a href="https://www.facebook.com/messages/t/61581199533740" target="_blank" rel="noopener noreferrer" className="btn">Napisz na Messengerze</a>
       </section>
 
       <footer>
