@@ -9,6 +9,7 @@ function App() {
         <a href="https://mrozikk.gumroad.com/l/xlohl">
           Kup ebook
         </a>
+        nwm dziala
       </div>
     </div>
   );
