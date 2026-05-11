@@ -13,38 +13,30 @@ const products = [
   },
   {
     id: 2,
-    title: 'Manifestacja z intencją',
-    subtitle: 'Praktyka kreacji w zgodzie z duszą',
+    title: 'Wracam z popiołu',
+    subtitle: 'Booster powrotu do własnej mocy',
     description:
-      'E-book o manifestowaniu, energii intencji i świadomym tworzeniu rzeczywistości w zgodzie ze sobą.',
+      'Booster dla kobiety, która wychodzi z tego, co ją przygasiło, i wraca do swojej siły, ognia, czucia oraz prawdy. Po zakupie znajdziesz 2 wersje boostera i wybierzesz tę, która najbardziej z Tobą rezonuje.',
     price: '59 zł',
     tag: 'Nowość',
-    cta: 'https://mrozikk.gumroad.com/l/xlohl',
-  },
-  {
-    id: 3,
-    title: 'Tarot i kobieca moc',
-    subtitle: 'Przewodnik po symbolice, energii i odczytach',
-    description:
-      'Przestrzeń do odkrywania Tarota jako lustra duszy, narzędzia transformacji i głębszego kontaktu ze sobą.',
-    price: '69 zł',
-    tag: 'Premium',
-    cta: 'https://mrozikk.gumroad.com/l/xlohl',
-  },
+    cta: 'https://mrozikk.gumroad.com/l/tvmbtj',
+  }
 ];
 
 const socials = [
   {
     name: 'Instagram',
-    handle: '@emilia.mrozik',
-    href: 'https://www.instagram.com/',
+    handle: '@mrozik.emilia',
+    href: 'https://www.instagram.com/mrozikemilia',
     label: 'Codzienna energia, intuicja, kobieca moc i inspiracje do pracy ze sobą.',
+    icon: 'instagram',
   },
   {
     name: 'TikTok',
-    handle: '@emilia.mrozik',
-    href: 'https://www.tiktok.com/',
+    handle: '@mrozik.emilia',
+    href: 'https://www.tiktok.com/@mrozik.emilia?_svg=2&checksum=6838176a8f6785abe6b6b8c93e0456026ccaeba6c6780bb92f82c4f9cb71ca1e&item_author_type=1&reflow_sign_scene=7&rgssign=8.1.qTD5Jb25Zj39-rCQ46ULlQ&sec_user_id=MS4wLjABAAAAd4hE0vZw0VPG4U2RE9QbA_WtrTGv1aj8zhFsH9l0Kb3iUPndc4mLbu_EtzkhWSuw&share_region=PL&share_scene=1&sharer_language=pl&social_share_type=4&source=h5_m&timestamp=1778514477&ug_btm=b8727%2Cb0&user_id=7533259723718591510&utm_campaign=client_share&utm_medium=ios&utm_source=copy',
     label: 'Krótkie przekazy, duchowe treści i materiały o transformacji oraz intencji.',
+    icon: 'tiktok',
   },
 ];
 
@@ -69,6 +61,33 @@ function Logo() {
       <path d="M41 16v32" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
     </svg>
   );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="social-icon">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="social-icon">
+      <path
+        d="M14 4c.6 1.8 1.8 3.1 3.8 3.8v2.8a7.1 7.1 0 0 1-3.6-1V15a5.2 5.2 0 1 1-5.2-5.2c.4 0 .8 0 1.2.1v2.9a2.7 2.7 0 1 0 1.5 2.4V4H14Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function SocialIcon({ type }) {
+  if (type === 'instagram') return <InstagramIcon />;
+  if (type === 'tiktok') return <TikTokIcon />;
+  return null;
 }
 
 function App() {
@@ -137,7 +156,7 @@ function App() {
             <h2>E-booki stworzone do pracy z energią i transformacją</h2>
             <p>
               Każdy produkt możesz kupić bezpośrednio przez Gumroad. To miejsce na Twoje e-booki, boostery i
-              materiały wspierające kobiecą drogę powrotu do siebie.
+              materiały wspierające kobiecą drogę powrotu do siebie, energii i wewnętrznej mocy.
             </p>
           </div>
 
@@ -245,9 +264,14 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div>
-                  <p className="social-name">{social.name}</p>
-                  <p className="social-handle">{social.handle}</p>
+                <div className="social-card-top">
+                  <div className="social-icon-wrap">
+                    <SocialIcon type={social.icon} />
+                  </div>
+                  <div>
+                    <p className="social-name">{social.name}</p>
+                    <p className="social-handle">{social.handle}</p>
+                  </div>
                 </div>
                 <span>{social.label}</span>
               </a>

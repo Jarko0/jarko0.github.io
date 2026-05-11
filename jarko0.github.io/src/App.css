@@ -347,3 +347,27 @@ a {
 .intention-card {
   background: linear-gradient(180deg, #f7efe8 0%, #fffaf6 100%);
 }
+
+
+.social-card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
