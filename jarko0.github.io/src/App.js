@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <script src="https://gumroad.com/js/gumroad.js"></script>
-      <div class="gumroad-product-embed">
+      <div className="gumroad-product-embed">
         <a href="https://twojprofil.gumroad.com/l/ebook">
           Kup ebook
         </a>
