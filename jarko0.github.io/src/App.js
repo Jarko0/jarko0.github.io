@@ -4,12 +4,15 @@ import './App.css';
 function App() {
   return (
     <div>
-      <h1>Działa GitHub Pages</h1>
-      <p>Pierwszy poprawny deploy Reacta.</p>
+      <script src="https://gumroad.com/js/gumroad.js"></script>
+      <div class="gumroad-product-embed">
+        <a href="https://twojprofil.gumroad.com/l/ebook">
+          Kup ebook
+        </a>
+      </div>
     </div>
   );
 }
 
 export default App;
 
-export default App;
