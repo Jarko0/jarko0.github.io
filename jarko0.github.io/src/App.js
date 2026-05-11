@@ -3,30 +3,30 @@ import './App.css';
 const products = [
   {
     id: 1,
-    title: 'E-book Starter Pack',
-    subtitle: 'Praktyczny poradnik w wersji PDF',
+    title: 'Przebudzenie intuicji',
+    subtitle: 'E-book dla kobiet wracających do swojej wewnętrznej prawdy',
     description:
-      'Krótki, konkretny e-book z gotowymi wskazówkami, checklistą i przykładami do wdrożenia od razu.',
+      'Materiał, który pomaga wsłuchać się w siebie, zaufać swojej energii i otworzyć się na głębsze prowadzenie.',
     price: '49 zł',
     tag: 'Bestseller',
     cta: 'https://mrozikk.gumroad.com/l/xlohl',
   },
   {
     id: 2,
-    title: 'Social Media dla twórcy',
-    subtitle: 'Jak budować markę osobistą',
+    title: 'Manifestacja z intencją',
+    subtitle: 'Praktyka kreacji w zgodzie z duszą',
     description:
-      'Materiały o publikowaniu treści, planowaniu rolek i budowaniu zaangażowanej społeczności.',
+      'E-book o manifestowaniu, energii intencji i świadomym tworzeniu rzeczywistości w zgodzie ze sobą.',
     price: '59 zł',
     tag: 'Nowość',
     cta: 'https://mrozikk.gumroad.com/l/xlohl',
   },
   {
     id: 3,
-    title: 'Sprzedawaj wiedzę online',
-    subtitle: 'E-book dla początkujących autorów',
+    title: 'Tarot i kobieca moc',
+    subtitle: 'Przewodnik po symbolice, energii i odczytach',
     description:
-      'Pomysły na sprzedaż produktów cyfrowych, przygotowanie oferty i prosty lejek sprzedażowy.',
+      'Przestrzeń do odkrywania Tarota jako lustra duszy, narzędzia transformacji i głębszego kontaktu ze sobą.',
     price: '69 zł',
     tag: 'Premium',
     cta: 'https://mrozikk.gumroad.com/l/xlohl',
@@ -36,21 +36,21 @@ const products = [
 const socials = [
   {
     name: 'Instagram',
-    handle: '@twojprofil',
+    handle: '@emilia.mrozik',
     href: 'https://www.instagram.com/',
-    label: 'Zobacz kulisy pracy, premiery e-booków i codzienne tipy.',
+    label: 'Codzienna energia, intuicja, kobieca moc i inspiracje do pracy ze sobą.',
   },
   {
     name: 'TikTok',
-    handle: '@twojprofil',
+    handle: '@emilia.mrozik',
     href: 'https://www.tiktok.com/',
-    label: 'Krótkie materiały video, porady i fragmenty produktów.',
+    label: 'Krótkie przekazy, duchowe treści i materiały o transformacji oraz intencji.',
   },
 ];
 
 function Logo() {
   return (
-    <svg className="brand-logo" viewBox="0 0 64 64" aria-label="Bookly Studio logo" role="img">
+    <svg className="brand-logo" viewBox="0 0 64 64" aria-label="Emilia Mrozik logo" role="img">
       <rect x="8" y="10" width="20" height="44" rx="10" fill="currentColor" opacity="0.14" />
       <path
         d="M18 16c8-4 15-4 23 0v32c-8-4-15-4-23 0V16Z"
@@ -84,8 +84,8 @@ function App() {
         <div className="brand-block">
           <Logo />
           <div>
-            <p className="eyebrow">Sklep autora</p>
-            <h1>Bookly Studio</h1>
+            <p className="eyebrow">Przestrzeń transformacji</p>
+            <h1>Emilia Mrozik</h1>
           </div>
         </div>
 
@@ -99,34 +99,34 @@ function App() {
       <main id="main-content">
         <section className="hero-section">
           <div className="hero-copy">
-            <p className="eyebrow">E-booki, które pomagają działać</p>
-            <h2>Sprzedawaj swoje produkty cyfrowe na nowoczesnej i responsywnej stronie.</h2>
+            <p className="eyebrow">E-booki jako narzędzia transformacji</p>
+            <h2>To nie jest lekki rozwój osobisty. To powrót do siebie.</h2>
             <p className="hero-text">
-              Masz tutaj gotowy frontend z sekcją produktów, zakładką o autorze i linkami do social mediów.
-              Całość jest przygotowana pod mobile i desktop.
+              Tworzę przestrzeń dla kobiet, które chcą obudzić intuicję, wrócić do swojej mocy i wejść głębiej w
+              kontakt z własną energią, prawdą oraz intencją.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#produkty">
                 Zobacz e-booki
               </a>
               <a className="btn btn-secondary" href="#o-mnie">
-                Poznaj autora
+                Poznaj moją przestrzeń
               </a>
             </div>
           </div>
 
           <aside className="hero-card" aria-label="Najważniejsze informacje">
             <div className="stat-card">
-              <span>Format</span>
-              <strong>PDF / digital</strong>
+              <span>Przestrzeń</span>
+              <strong>Intuicja i kobieca energia</strong>
             </div>
             <div className="stat-card">
-              <span>Sprzedaż</span>
-              <strong>Gumroad</strong>
+              <span>Narzędzia</span>
+              <strong>Tarot, intencja, manifestacja</strong>
             </div>
             <div className="stat-card">
-              <span>Dostęp</span>
-              <strong>24/7 online</strong>
+              <span>Forma</span>
+              <strong>E-booki i odczyty</strong>
             </div>
           </aside>
         </section>
@@ -134,9 +134,10 @@ function App() {
         <section className="section" id="produkty">
           <div className="section-heading">
             <p className="eyebrow">Produkty</p>
-            <h2>Twoje e-booki w czytelnym układzie</h2>
+            <h2>E-booki stworzone do pracy z energią i transformacją</h2>
             <p>
-              Każda karta produktu ma opis, cenę i przycisk zakupu prowadzący bezpośrednio do Gumroad.
+              Każdy produkt możesz kupić bezpośrednio przez Gumroad. To miejsce na Twoje e-booki, boostery i
+              materiały wspierające kobiecą drogę powrotu do siebie.
             </p>
           </div>
 
@@ -166,29 +167,61 @@ function App() {
         <section className="section about-section" id="o-mnie">
           <div className="section-heading narrow">
             <p className="eyebrow">O mnie</p>
-            <h2>Poznaj autora i historię stojącą za e-bookami</h2>
+            <h2>Jestem tutaj, aby przypominać</h2>
           </div>
 
-          <div className="about-layout">
-            <article className="about-card">
-              <h3>Kim jest autor?</h3>
+          <div className="about-layout single-column">
+            <article className="about-card about-main-card">
+              <h3>Kim jestem</h3>
               <p>
-                Jestem twórcą produktów cyfrowych i dzielę się wiedzą w prosty, praktyczny sposób. Tworzę
-                materiały, które pomagają szybciej ruszyć z własnym projektem, marką albo sprzedażą online.
+                Jestem Emilia Mrozik i od prawie 6 lat pracuję z Tarotem, energią oraz światem duchowym. Nie
+                traktuję tego jako zainteresowania, ale jako mój język, mój rytm i moje naturalne środowisko.
               </p>
               <p>
-                W moich e-bookach stawiam na konkret: mniej teorii, więcej przykładów, checklist i gotowych
-                rozwiązań do wdrożenia od razu.
+                Od zawsze czułam, że istnieje coś więcej niż to, co widać. Coś cichego, pierwotnego, co porusza
+                się pod powierzchnią rzeczywistości. I właśnie tam prowadzę innych, do miejsc, gdzie zaczyna się
+                prawda o nich samych.
               </p>
             </article>
 
             <article className="about-card highlight-card">
-              <h3>Co znajdziesz w środku?</h3>
+              <h3>✧ Moja przestrzeń</h3>
+              <p>Tworzę przestrzeń, w której spotykają się:</p>
               <ul>
-                <li>praktyczne instrukcje krok po kroku,</li>
-                <li>proste strategie do wdrożenia,</li>
-                <li>materiały dla osób, które chcą zarabiać na wiedzy.</li>
+                <li>energia kobieca i intuicja,</li>
+                <li>manifestacja i kreacja rzeczywistości,</li>
+                <li>Tarot jako lustro duszy,</li>
+                <li>matryca losu i głębokie odczyty energii,</li>
+                <li>boostery energetyczne i praca z intencją,</li>
+                <li>e-booki jako narzędzia transformacji.</li>
               </ul>
+              <p>
+                To nie jest lekki rozwój osobisty. To powrót do siebie. Do tego, co pierwotne, dzikie i prawdziwe.
+              </p>
+            </article>
+
+            <article className="about-card">
+              <h3>✧ Dla kogo jestem</h3>
+              <p>Ta przestrzeń jest dla Ciebie, jeśli czujesz, że:</p>
+              <ul>
+                <li>coś w Tobie pamięta, ale jeszcze nie zostało obudzone,</li>
+                <li>pod warstwami codzienności żyje w Tobie pradawna kobieta - intuicyjna, silna i nieokiełznana.</li>
+              </ul>
+              <p>Szczególnie wspieram kobiety, które czują, że:</p>
+              <ul>
+                <li>nie chcą już być małe,</li>
+                <li>nie chcą się dopasowywać,</li>
+                <li>są gotowe obudzić swoją wewnętrzną moc.</li>
+              </ul>
+            </article>
+
+            <article className="about-card intention-card">
+              <h3>✧ Moja intencja</h3>
+              <p>Nie jestem tu, aby Cię naprawiać. Nie jesteś zepsuta.</p>
+              <p>
+                Jestem tutaj, aby przypominać. Bo prawda jest taka, że Ty już to masz - ja tylko pomagam Ci to
+                zobaczyć.
+              </p>
             </article>
           </div>
         </section>
@@ -196,10 +229,10 @@ function App() {
         <section className="section" id="sociale">
           <div className="section-heading">
             <p className="eyebrow">Moje sociale</p>
-            <h2>Bądź na bieżąco z nowymi materiałami</h2>
+            <h2>Bądź blisko mojej energii i nowych treści</h2>
             <p>
-              Tutaj możesz dodać swoje prawdziwe linki do Instagrama i TikToka. Na ten moment zostawiłem gotowe
-              miejsce do podmiany.
+              Tutaj możesz podmienić linki na swoje prawdziwe profile. Sekcja jest już gotowa pod Instagram i
+              TikTok.
             </p>
           </div>
 

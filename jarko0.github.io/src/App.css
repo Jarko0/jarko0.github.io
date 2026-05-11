@@ -222,6 +222,7 @@ a {
 .products-grid,
 .social-grid,
 .about-layout {
+  align-items: stretch;
   display: grid;
   gap: 20px;
 }
@@ -260,6 +261,7 @@ a {
 }
 
 .about-layout {
+  align-items: stretch;
   grid-template-columns: 1.1fr 0.9fr;
 }
 
@@ -332,4 +334,16 @@ a {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+.single-column {
+  grid-template-columns: 1fr;
+}
+
+.about-main-card {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.intention-card {
+  background: linear-gradient(180deg, #f7efe8 0%, #fffaf6 100%);
 }
